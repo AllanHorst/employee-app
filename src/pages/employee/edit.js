@@ -13,7 +13,8 @@ export default class Edit extends React.Component {
   }
 
   componentWillMount() {
-    service.getList().then(data => {
+    const { id } = this.props.match.params
+    service.findById(id).then(data => {
       this.setState({ ...data })
     })
   }
@@ -25,7 +26,9 @@ export default class Edit extends React.Component {
   }
 
   onSubmit() {
-    console.log(this.state)
+    service.update(this.state).then(() => {
+      this.props.history.push('/')
+    })
   }
 
   render() {

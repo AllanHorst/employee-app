@@ -1,5 +1,6 @@
 import React from 'react'
 import styles from '../../pages/employee/styles'
+import service from 'services/employeeService'
 import EmployeeForm from '../../components/employeeForm';
 
 export default class New extends React.Component {
@@ -18,7 +19,9 @@ export default class New extends React.Component {
   }
 
   onSubmit() {
-    console.log(this.state)
+    service.saveNew(this.state).then(() => {
+      this.props.history.push('/')
+    })
   }
 
   render() {
