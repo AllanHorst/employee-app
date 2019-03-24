@@ -4,13 +4,13 @@ import styles from './styles'
 
 export default props => (
   <li style={ styles.listItem }>
-    <Link to={`/edit/${props.id}`}>
+    <Link style={ styles.listContentLink} to={`/edit/${props.id}`}>
       { `${props.name} ${ props.lastname }` }
     </Link>
-    <span>
+    <span style={ styles.listContent}>
       { props.email }
     </span>
-    <span>
+    <span style={ styles.listContent}>
       { props.nis }
     </span>
     <button onClick={ () => props.deleteItem(props.id) }>

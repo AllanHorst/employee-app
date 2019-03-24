@@ -2,6 +2,7 @@ import React from 'react'
 import service from 'services/employeeService'
 import styles from './styles'
 import ListItem from '../../components/listItem';
+import { Link } from 'react-router-dom'
 
 export default class List extends React.Component {
 
@@ -53,6 +54,10 @@ export default class List extends React.Component {
             ))
           }
         </ul>
+
+        <Link to="/new" style={ styles.newButton }>
+        Cadastrar
+        </Link>
       </div>
     )
   }
