@@ -7,22 +7,7 @@ import { Link } from 'react-router-dom'
 export default class List extends React.Component {
 
   state = {
-    employees: [
-      {
-        id: 1,
-        name: 'Allan',
-        lastname: 'Willig',
-        email: 'allan@gmail.com',
-        nis: '123456789'
-      },
-      {
-        id: 2,
-        name: 'Amanda',
-        lastname: 'Willig',
-        email: 'amanda@gmail.com',
-        nis: '98754321'
-      }
-    ]
+    employees: []
   }
 
   deleteItem(id) {
@@ -34,9 +19,9 @@ export default class List extends React.Component {
   }
 
   loadEmployees() {
-    // service.getList().them(res => {
-    //   this.setState({ employees: res.data})
-    // })
+    service.getList().them(res => {
+      this.setState({ employees: res.data})
+    })
   }
 
   render() {
